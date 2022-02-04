@@ -527,20 +527,8 @@ type_init(register_types);
 
 static uint64_t max_gpa(void)
 {
-    uint64_t max = 0;
-    int i;
-
-    for (i = 0; i < e820_get_num_entries(); i++) {
-        uint64_t addr, len;
-
-        if (e820_get_entry(i, E820_RAM, &addr, &len)) {
-            if (len && addr + len > max) {
-                max = addr + len;
-            }
-        }
-    }
-
-    return max;
+    // TODO: Future work.
+    return 0xFFFFFFFFFFFFFFFF;
 }
 
 static bool send_handshake_info(VMIntrospection *i, Error **errp)
